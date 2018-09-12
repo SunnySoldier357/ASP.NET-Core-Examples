@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build - jQueryDatatable",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/jQueryDatatable/jQueryDatatable.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "build - StoringImages",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/StoringImages/StoringImages.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        }
+    ]
+}
