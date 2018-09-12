@@ -1,0 +1,15 @@
+@model StoringImages.Models.ImageHolder
+
+@{
+  Layout = "_Layout";
+}
+
+@section Title { View Image }
+
+<h1>View Image</h1>
+
+@{
+  string base64 = Convert.ToBase64String(Model.ImageArray);
+  string imgSrc = string.Format("data:image/jpg;base64,{0}", base64);
+}
+<img src="@imgSrc" />
