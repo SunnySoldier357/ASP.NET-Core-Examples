@@ -10,10 +10,10 @@ namespace jQueryDatatable
 {
     public class Startup
     {
-        // Public Properties
+        //* Public Properties
         public IConfiguration Configuration { get; }
 
-        // Constructors
+        //* Constructors
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -25,10 +25,10 @@ namespace jQueryDatatable
             Configuration = builder.Build();
         }
 
-        // Public MMethods
+        //* Public MMethods
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddJsonOptions(options => 
+            services.AddMvc().AddJsonOptions(options =>
             {
                 options.SerializerSettings.ContractResolver = new DefaultContractResolver();
             });
@@ -40,7 +40,6 @@ namespace jQueryDatatable
                 options.UseSqlServer(connection, b => b.UseRowNumberForPaging());
             });
         }
-
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {

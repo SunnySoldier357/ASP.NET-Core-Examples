@@ -8,13 +8,13 @@ namespace jQueryDatatable.Controllers
 {
     public class HomeController : Controller
     {
-        // Private Properties
+        //* Private Properties
         private DatabaseContext _db;
 
-        // Constructors
+        //* Constructors
         public HomeController(DatabaseContext db) => _db = db;
 
-        // Public Methods
+        //* Public Methods
         public IActionResult Index() => View();
 
         public IActionResult LoadData()
@@ -48,27 +48,27 @@ namespace jQueryDatatable.Controllers
 
                 int recordsTotal = 0;
 
-                // Getting all Customer data  
+                // Getting all Customer data
                 var customerData = from c in _db.Customers
                                    select c;
-                // Sorting  
+                // Sorting
                 if (!(string.IsNullOrEmpty(sortColumn) && string.IsNullOrEmpty(sortColumnDirection)))
                     customerData = customerData.OrderBy(sortColumn + " " + sortColumnDirection);
 
-                // Search  
+                // Search
                 if (!string.IsNullOrEmpty(searchValue))
                     customerData = customerData.Where(c => c.Name == searchValue);
 
-                // Total number of rows 
+                // Total number of rows
                 recordsTotal = customerData.Count();
 
-                // Paging   
+                // Paging
                 var data = customerData
                     .Skip(skip)
                     .Take(pageSize)
                     .ToList();
 
-                // Returning Json Data  
+                // Returning Json Data
                 return Json(new
                 {
                     draw,
