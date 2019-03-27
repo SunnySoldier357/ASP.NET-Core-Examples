@@ -4,7 +4,7 @@ namespace StoringImages.Models
 {
     public class ImageHolder
     {
-        // Public Properties
+        //* Public Properties
         public byte[] ImageArray { get; set; }
 
         public IFormFile ImageFile { get; set; }

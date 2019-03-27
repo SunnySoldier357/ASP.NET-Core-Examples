@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StoringImages.Models;
 
@@ -7,17 +6,17 @@ namespace StoringImages.Controllers
 {
     public class HomeController : Controller
     {
-        // Static Properties
+        //* Static Properties
         public static ImageHolder ImageHolder = new ImageHolder();
 
-        // Public Methods
+        //* Public Methods
         public IActionResult Index() => View();
 
         [HttpGet]
         public IActionResult Upload() => View(new ImageHolder());
 
         [HttpPost]
-        public async Task<IActionResult> Upload(ImageHolder holder)
+        public IActionResult Upload(ImageHolder holder)
         {
             if (holder.ImageFile.Length > 0)
             {
